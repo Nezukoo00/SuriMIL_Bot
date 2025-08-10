@@ -4,34 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="572da275-d0e0-4821-846a-6f9ac8621f0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/SuriMIL_Bot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/stickers.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/modules_en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/modules_ru.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/quizzes_en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/quizzes_ru.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/database.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/db_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/ai_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/common.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/modules.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/quiz.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/store.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locales/en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locales/ru.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="572da275-d0e0-4821-846a-6f9ac8621f0b" name="Changes" comment="new">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/ai_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/ai_handler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Nezukoo00"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Nezukoo00/SuriMIL_Bot.git",
+    "accountId": "5f7554f1-1c8a-499a-96f0-c18b2315b528"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -121,14 +110,38 @@
       <option name="presentableId" value="Default" />
       <updated>1754753577997</updated>
       <workItem from="1754753600808" duration="6567000" />
-      <workItem from="1754805703560" duration="6041000" />
+      <workItem from="1754805703560" duration="13114000" />
     </task>
+    <task id="LOCAL-00001" summary="new">
+      <option name="closed" value="true" />
+      <created>1754813896077</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754813896077</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new" />
+    <option name="LAST_COMMIT_MESSAGE" value="new" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SuriMIL_Bot$bot.coverage" NAME="bot Coverage Results" MODIFIED="1754812440444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SuriMIL_Bot$bot.coverage" NAME="bot Coverage Results" MODIFIED="1754842606456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

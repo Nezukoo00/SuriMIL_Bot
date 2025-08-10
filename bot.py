@@ -59,11 +59,16 @@ def main() -> None:
     # --- НОВЫЙ ОБРАБОТЧИК ДИАЛОГА ДЛЯ ИИ ---
     ai_conv_handler = ConversationHandler(
         entry_points=[
+            # Точка входа №1: Нажатие на кнопку с точным текстом.
             MessageHandler(ask_button_filter, ai_handler.start_ai_dialog),
+            # Точка входа №2: Явная команда /ask.
             CommandHandler("ask", ai_handler.start_ai_dialog)
         ],
         states={
+            # Состояние, в котором бот ждет вопрос от пользователя.
             ai_handler.AWAITING_QUESTION: [
+                # Этот обработчик сработает на ЛЮБОЙ текст, который НЕ является командой.
+                # Именно он должен обрабатывать вопрос пользователя.
                 MessageHandler(filters.TEXT & ~filters.COMMAND, ai_handler.handle_question)
             ]
         },
