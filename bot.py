@@ -1,0 +1,107 @@
+import logging
+import datetime
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    CallbackQueryHandler,
+    MessageHandler,
+    filters,
+    ConversationHandler,
+)
+
+from config import TELEGRAM_TOKEN
+from database import db_handler
+from handlers import common, modules, store, quiz, ai_handler
+from handlers.utils import get_text
+
+# Включаем логирование
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
+logger = logging.getLogger(__name__)
+
+# Определяем фильтры для кнопок главного меню на разных языках
+module_button_filter = filters.TEXT & (
+        filters.Regex(f"^{get_text('main_menu_module', 'ru')}$") |
+        filters.Regex(f"^{get_text('main_menu_module', 'en')}$")
+)
+store_button_filter = filters.TEXT & (
+        filters.Regex(f"^{get_text('main_menu_store', 'ru')}$") |
+        filters.Regex(f"^{get_text('main_menu_store', 'en')}$")
+)
+quiz_button_filter = filters.TEXT & (
+        filters.Regex(f"^{get_text('main_menu_quiz', 'ru')}$") |
+        filters.Regex(f"^{get_text('main_menu_quiz', 'en')}$")
+)
+ask_button_filter = filters.TEXT & (
+        filters.Regex(f"^{get_text('main_menu_ask', 'ru')}$") |
+        filters.Regex(f"^{get_text('main_menu_ask', 'en')}$")
+)
+
+
+def main() -> None:
+    """Основная функция запуска бота."""
+    # Инициализация БД при старте
+    db_handler.init_db()
+
+    # Создание Application
+    application = Application.builder().token(TELEGRAM_TOKEN).build()
+
+    # --- Обработчик диалога для квиза ---
+    quiz_conv_handler = ConversationHandler(
+        entry_points=[MessageHandler(quiz_button_filter, quiz.quiz_command)],
+        states={
+            quiz.ANSWERING: [CallbackQueryHandler(quiz.handle_answer, pattern='^ans_')],
+        },
+        fallbacks=[CommandHandler('cancel', quiz.cancel_quiz)],
+    )
+
+    # --- НОВЫЙ ОБРАБОТЧИК ДИАЛОГА ДЛЯ ИИ ---
+    ai_conv_handler = ConversationHandler(
+        entry_points=[
+            MessageHandler(ask_button_filter, ai_handler.start_ai_dialog),
+            CommandHandler("ask", ai_handler.start_ai_dialog)
+        ],
+        states={
+            ai_handler.AWAITING_QUESTION: [
+                MessageHandler(filters.TEXT & ~filters.COMMAND, ai_handler.handle_question)
+            ]
+        },
+        fallbacks=[CommandHandler('cancel', ai_handler.cancel_dialog)],
+    )
+
+    # --- Регистрация всех обработчиков ---
+    application.add_handler(CommandHandler("start", common.start))
+    application.add_handler(CallbackQueryHandler(common.set_language, pattern='^set_lang_'))
+
+    # Обработчики для кнопок главного меню
+    application.add_handler(MessageHandler(module_button_filter, modules.send_module_command))
+    application.add_handler(MessageHandler(store_button_filter, store.store_command))
+
+
+    # Команды для прямого доступа
+    application.add_handler(CommandHandler("module", modules.send_module_command))
+    application.add_handler(CommandHandler("store", store.store_command))
+    application.add_handler(CommandHandler("quiz", quiz.quiz_command))  # Доступ к квизу по команде /quiz
+
+
+    # Добавляем обработчик квиза
+    application.add_handler(quiz_conv_handler)
+    application.add_handler(ai_conv_handler)
+
+    # Обработчик для кнопок магазина
+    application.add_handler(CallbackQueryHandler(store.handle_purchase, pattern='^buy_sticker_'))
+
+    # --- Настройка ежедневной рассылки ---
+    job_queue = application.job_queue
+    # Время в UTC. 9:00 МСК = 6:00 UTC.Часовой пояс.
+    daily_time = datetime.time(hour=7, minute=0, tzinfo=datetime.timezone.utc)
+    job_queue.run_daily(modules.broadcast_module, time=daily_time)
+
+    # Запуск бота
+    logger.info("Бот запускается...")
+    application.run_polling()
+
+
+if __name__ == "__main__":
+    main()

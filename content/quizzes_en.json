@@ -1,0 +1,9 @@
+[
+  { "module_id": 1, "question": "The technology that inserts one person's face into a video with another is called...", "options": ["Photoshop", "Deepfake", "Retouch"], "correct": 1 },
+  { "module_id": 2, "question": "The headline is 'Scientists have been hiding this for 100 years!'is an example...", "options": ["Scientific article", "Clickbait", "Official statement"], "correct": 1 },
+  { "module_id": 3, "question": "When you are looking for only the information that confirms your opinion, it is...", "options": ["Critical thinking", "Confirmation bias", "Objective analysis"], "correct": 1 },
+  { "module_id": 4, "question": "What action is called when you checking some suspicios news articles", "options": ["Writing news", "Creating memes", "Fact checking"], "correct": 2 },
+  { "module_id": 5, "question": "What is NOT is it a sign of emotional manipulation in the news?", "options": ["Words 'shock', 'horror'", "Hate speech", "Links to multiple sources"], "correct": 2 },
+  { "module_id": 6, "question": "Artificial mass the support created by bots is...", "options": ["Flash Mob", "Astroturfing", "Social Survey"], "correct": 1 },
+  { "module_id": 7, "question": "Which of these URLs looks the most suspicious?", "options": ["bbc.com ", "theguardian.com ", "bbc.co.newss.org "], ",correct": 2 }
+]
