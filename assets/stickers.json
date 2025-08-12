@@ -6,7 +6,7 @@
       "en": "Detective Cat"
     },
     "price": 50,
-    "file_id": "CAACAgIAAxkBAAEMAbBmB_m-Gb4gBvUa-Gztp0w4zn0E4gACaxMAAsS_wUuBw_qDxj2x1jQE"
+    "file_path": "assets/stickers/Lemon-Fake.webp"
   },
   {
     "id": "truth_serum",
@@ -15,6 +15,6 @@
       "en": "Truth Serum"
     },
     "price": 100,
-    "file_id": "CAACAgIAAxkBAAEMAbRmB_nCqMLnLzYg3e03G-kXJ3tH2gACbhMAAjbfwUv3i27OFo2VajQE"
+    "file_path": "assets/stickers/Lemon-Fake.webp"
   }
 ]

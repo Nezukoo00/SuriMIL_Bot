@@ -5,12 +5,11 @@ from datetime import datetime
 DB_PATH = os.path.join(os.path.dirname(__file__), '..', 'database', 'database.db')
 
 def init_db():
-    if os.path.exists(DB_PATH) and os.path.getsize(DB_PATH) > 0:
-        return
-    print("Создание или пересоздание базы данных...")
+
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
+    print("Проверка структуры базы данных...")
     # Users table
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
@@ -30,6 +29,18 @@ def init_db():
             FOREIGN KEY (user_id) REFERENCES users (user_id)
         )
     """)
+
+    # Solved debunks table
+    cursor.execute("""
+            CREATE TABLE IF NOT EXISTS solved_debunks (
+                user_id INTEGER,
+                case_id TEXT,
+                solved_date DATE,
+                PRIMARY KEY (user_id, case_id),
+                FOREIGN KEY (user_id) REFERENCES users (user_id)
+            )
+        """)
+    print("Структура базы данных в порядке.")
     conn.commit()
     conn.close()
 
@@ -96,3 +107,22 @@ def get_all_users():
     users = cursor.fetchall()
     conn.close()
     return users
+
+def mark_debunk_as_solved(user_id: int, case_id: str):
+    """Отмечает кейс как решенный пользователем."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    today = datetime.now().date()
+    cursor.execute("INSERT OR IGNORE INTO solved_debunks (user_id, case_id, solved_date) VALUES (?, ?, ?)",
+                   (user_id, case_id, today))
+    conn.commit()
+    conn.close()
+
+def get_solved_debunk_ids(user_id: int) -> list[str]:
+    """Возвращает список ID кейсов, решенных пользователем."""
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT case_id FROM solved_debunks WHERE user_id = ?", (user_id,))
+    cases = cursor.fetchall()
+    conn.close()
+    return [c[0] for c in cases]

@@ -32,7 +32,8 @@ async def show_main_menu(chat_id: int, lang: str, context: ContextTypes.DEFAULT_
     keyboard = [
         [get_text('main_menu_module', lang)],
         [get_text('main_menu_quiz', lang), get_text('main_menu_store', lang)],
-        [get_text('main_menu_ask', lang)]
+        [get_text('main_menu_ask', lang), get_text('main_menu_debunk', lang)]
+
     ]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
     await context.bot.send_message(

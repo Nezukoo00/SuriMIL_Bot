@@ -11,8 +11,9 @@ from telegram.ext import (
 
 from config import TELEGRAM_TOKEN
 from database import db_handler
-from handlers import common, modules, store, quiz, ai_handler
+from handlers import common, modules, store, quiz, ai_handler, debunk
 from handlers.utils import get_text
+
 
 # Включаем логирование
 logging.basicConfig(
@@ -37,6 +38,14 @@ ask_button_filter = filters.TEXT & (
         filters.Regex(f"^{get_text('main_menu_ask', 'ru')}$") |
         filters.Regex(f"^{get_text('main_menu_ask', 'en')}$")
 )
+debunk_button_filter = filters.TEXT & (
+        filters.Regex(f"^{get_text('main_menu_debunk', 'ru')}$") |
+        filters.Regex(f"^{get_text('main_menu_debunk', 'en')}$")
+)
+main_menu_buttons_filter = (
+    module_button_filter | store_button_filter | quiz_button_filter |
+    debunk_button_filter | ask_button_filter
+)
 
 
 def main() -> None:
@@ -56,7 +65,7 @@ def main() -> None:
         fallbacks=[CommandHandler('cancel', quiz.cancel_quiz)],
     )
 
-    # --- НОВЫЙ ОБРАБОТЧИК ДИАЛОГА ДЛЯ ИИ ---
+    # ---ОБРАБОТЧИК ДИАЛОГА ДЛЯ ИИ ---
     ai_conv_handler = ConversationHandler(
         entry_points=[
             # Точка входа №1: Нажатие на кнопку с точным текстом.
@@ -66,13 +75,35 @@ def main() -> None:
         ],
         states={
             # Состояние, в котором бот ждет вопрос от пользователя.
+            # Когда ИИ ждет вопрос, он будет реагировать на любой текст,
+            # который НЕ является командой И НЕ является кнопкой главного меню.
             ai_handler.AWAITING_QUESTION: [
-                # Этот обработчик сработает на ЛЮБОЙ текст, который НЕ является командой.
-                # Именно он должен обрабатывать вопрос пользователя.
-                MessageHandler(filters.TEXT & ~filters.COMMAND, ai_handler.handle_question)
+                MessageHandler(
+                    filters.TEXT & ~filters.COMMAND & ~main_menu_buttons_filter,
+                    ai_handler.handle_question
+                )
             ]
         },
-        fallbacks=[CommandHandler('cancel', ai_handler.cancel_dialog)],
+        fallbacks=[CommandHandler('cancel', ai_handler.cancel_dialog)
+
+                   ]
+
+    )
+
+    # --- ОБРАБОТЧИК ДЛЯ РАЗБОРА ФЕЙКОВ ---
+    debunk_conv_handler = ConversationHandler(
+        entry_points=[
+            CommandHandler("debunk", debunk.start_debunk),
+            MessageHandler(debunk_button_filter, debunk.start_debunk)
+        ],
+        states={
+            debunk.AWAITING_ANSWER: [
+
+                CallbackQueryHandler(debunk.cancel_debunk, pattern='^debunk_cancel$'),
+                CallbackQueryHandler(debunk.handle_answer, pattern='^debunk_')
+            ],
+        },
+        fallbacks=[CommandHandler('cancel', debunk.cancel_debunk)],
     )
 
     # --- Регистрация всех обработчиков ---
@@ -87,12 +118,13 @@ def main() -> None:
     # Команды для прямого доступа
     application.add_handler(CommandHandler("module", modules.send_module_command))
     application.add_handler(CommandHandler("store", store.store_command))
-    application.add_handler(CommandHandler("quiz", quiz.quiz_command))  # Доступ к квизу по команде /quiz
+    application.add_handler(CommandHandler("quiz", quiz.quiz_command))
 
 
     # Добавляем обработчик квиза
     application.add_handler(quiz_conv_handler)
     application.add_handler(ai_conv_handler)
+    application.add_handler(debunk_conv_handler)
 
     # Обработчик для кнопок магазина
     application.add_handler(CallbackQueryHandler(store.handle_purchase, pattern='^buy_sticker_'))

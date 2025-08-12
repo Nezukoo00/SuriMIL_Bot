@@ -21,5 +21,10 @@
   "store_buy_fail": "Oops! Not enough XP. You need more {needed} XP.",
   "ask_ai_prompt": "What do you want to ask a media literacy expert about? Use the command like this `/ask <your question>`",
   "ask_ai_thinking": "🤔 I'm thinking about your question...",
-  "ai_welcome_prompt": "🤖 Hello! I'm SuriMIL, your media literacy assistant. Ask me your question in the next message, and I'll do my best to answer it. \n\nTo cancel the conversation, send the /cancel command."
+  "ai_welcome_prompt": "🤖 Hello! I'm SuriMIL, your media literacy assistant. Ask me your question in the next message, and I'll do my best to answer it. \n\nTo cancel the conversation, send the /cancel command.",
+  "debunk_cancelled": "Investigation cancelled. Returning to the main menu.",
+  "debunk_no_cases": "There are no more cases to investigate today. Check back later!",
+  "debunk_xp_award": "You have earned +{xp} XP for your detective work!",
+  "main_menu_debunk": "🕵️‍♂️ Debunk a Fake",
+  "ai_cancel_dialog": "Okay, the dialog with the AI has ended. We can do something else!"
 }

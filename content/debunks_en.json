@@ -1,0 +1,46 @@
+[
+  {
+    "id": "miracle_lemon",
+    "initial_message": "🍋 *Sensation!* Scientists have allegedly proved that lemon is 10,000 times stronger than chemotherapy and kills cancer cells! This information is hidden by pharmaceutical companies in order to sell expensive medicines. \n\nLet's analyze this 'news' together. Where do you think you should start checking?",
+    "initial_photo": "https://i.ibb.co/WN6jGSSJ/Lemon-Fake.png",
+    "xp_reward": 25,
+    "steps": [
+      {
+        "question": "🔍 *Step 1: Checking the source.* \n\nWhat would you do first to check where from Where did this news come from?",
+        "options": {
+          "find_source": "Google who first wrote about lemon against cancer",
+          "ask_friends": "Ask your friends if they've heard about it",
+          "believe_it": "Believe it, because it sounds plausible"
+        },
+        "correct_option": "find_source",
+        "feedback_correct": "Great move! Finding the original source is the basis of fact—checking. The news about the \"miracle lemon\" has been circulating on the Internet for more than 10 years and every time it pops up on dubious sites without links to scientific research.",
+        "hint_incorrect": "Hmm, not really. Asking friends or believing them right away means giving in to emotions. Try to think like a detective: where to find the evidence? Maybe we should look for the original source?"
+      },
+      {
+        "question": "🤔 *Step 2: Emotional coloring.* \n\nWhat feelings is this news trying to evoke in the reader? Pay attention to the phrases 'Sensation!', 'is hidden by companies'.",
+        "options": {
+          "anger_hope": "Anger at 'greedy corporations' and hope for a 'simple solution'",
+          "calmness": "Calmness and confidence in science",
+          "sadness": "Sadness due to diseases"
+        },
+        "correct_option": "anger_hope",
+        "feedback_correct": "Exactly! Fake news often plays on strong emotions—fear, anger, and hope. This is done to disable critical thinking and force people to share information without checking it.",
+        "hint_incorrect": "Think again. Does the news cause calmness? Pay attention to the exclamation marks and accusations against 'greedy corporations'."
+      },
+      {
+        "question": "🔬 *Step 3: Search for evidence.* \n\nThe news has no links to specific studies, names of scientists or names of institutes. What does this mean?",
+        "options": {
+          "no_proof": "This is a clear sign of unreliability. There are always links to the original source in real scientific news.",
+          "secret_info": "Perhaps the information is so secret that it cannot be disclosed.",
+          "not_important": "It's probably not that important for the overall gist."
+        },
+        "correct_option": "no_proof",
+        "feedback_correct": "Absolutely correct. The lack of verifiable data is a red flag. If the scientists have proved it, then there should be publications in reputable scientific journals, not anonymous texts on social networks.",
+        "hint_incorrect": "Has news of this magnitude always been so secret? Surely they will want to share the news with the world and indicate all the links to the research and the names of the scientists who made this discovery."
+
+      }
+    ],
+    "final_message": "🕵️‍♂️ *The investigation is complete!* \n\nPerfect work! Together we went through the key steps of verifying information and made sure that the news about the 'miracle lemon' is a dangerous fake. You did a great job!"
+
+  }
+]
