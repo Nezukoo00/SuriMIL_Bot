@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="572da275-d0e0-4821-846a-6f9ac8621f0b" name="Changes" comment="new">
-      <change afterPath="$PROJECT_DIR$/assets/stickers/Lemon-Fake.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/debunks_en.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/debunks_ru.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/debunk.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/stickers/ha_ha.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/stickers/lets_see.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/stickers/ok.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/stickers/point.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/stickers/shhh.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/stickers/thumbs_up.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/stickers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/stickers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/quizzes_en.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/quizzes_en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/ai_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/ai_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/store.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/store.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/stickers/Lemon-Fake.webp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +74,9 @@
       <recent name="C:\Users\админ\PycharmProjects\SuriMIL_Bot\assets\stickers" />
       <recent name="C:\Users\админ\PycharmProjects\SuriMIL_Bot\content" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\админ\PycharmProjects\SuriMIL_Bot\assets\stickers" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="bot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -129,7 +126,8 @@
       <updated>1754753577997</updated>
       <workItem from="1754753600808" duration="6567000" />
       <workItem from="1754805703560" duration="40082000" />
-      <workItem from="1755010052002" duration="4660000" />
+      <workItem from="1755010052002" duration="16849000" />
+      <workItem from="1756459151533" duration="1685000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <option name="closed" value="true" />
@@ -161,6 +159,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="new" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SuriMIL_Bot$bot.coverage" NAME="bot Coverage Results" MODIFIED="1755007480852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SuriMIL_Bot$bot.coverage" NAME="bot Coverage Results" MODIFIED="1755194743041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

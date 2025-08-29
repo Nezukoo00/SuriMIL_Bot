@@ -1,20 +1,57 @@
 [
   {
-    "id": "detective_cat",
+    "id": "camelio_shh",
     "name": {
-      "ru": "Кот-детектив",
-      "en": "Detective Cat"
+      "ru": "Шшшш!",
+      "en": "Shhhh!"
     },
-    "price": 50,
-    "file_path": "assets/stickers/Lemon-Fake.webp"
+    "price": 5,
+    "file_path": "assets/stickers/shhh.webp"
   },
   {
-    "id": "truth_serum",
+    "id": "point_him",
     "name": {
-      "ru": "Сыворотка правды",
-      "en": "Truth Serum"
+      "ru": "Это был он",
+      "en": "It was Him"
     },
-    "price": 100,
-    "file_path": "assets/stickers/Lemon-Fake.webp"
+    "price": 5,
+    "file_path": "assets/stickers/point.webp"
+  },
+  {
+    "id": "haha_evil",
+    "name": {
+      "ru": "ХаХаХа",
+      "en": "HaHaHA"
+    },
+    "price": 5,
+    "file_path": "assets/stickers/ha_ha.webp"
+  },
+  {
+    "id": "ok_suri",
+    "name": {
+      "ru": "Ок",
+      "en": "Okay"
+    },
+    "price": 5,
+    "file_path": "assets/stickers/ok.webp"
+  },
+  {
+    "id": "thumbs_suri",
+    "name": {
+      "ru": "Отлично",
+      "en": "Great"
+    },
+    "price": 5,
+    "file_path": "assets/stickers/thumbs_up.webp"
+  },
+  {
+    "id": "see_suri",
+    "name": {
+      "ru": "Давай посмотрим!",
+      "en": "Let's see"
+    },
+    "price": 5,
+    "file_path": "assets/stickers/lets_see.webp"
   }
+
 ]
